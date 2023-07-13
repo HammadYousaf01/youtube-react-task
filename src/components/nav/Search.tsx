@@ -1,12 +1,21 @@
+import { Box } from "@mui/material";
+
 import SearchBox from "./SearchBox";
 import SearchButton from "./SearchButton";
 
 const Search: React.FC = () => {
   return (
-    <div>
+    <Box
+      sx={{
+        flex: 1,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <SearchBox />
       <SearchButton />
-    </div>
+    </Box>
   );
 };
 
