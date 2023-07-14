@@ -6,15 +6,15 @@ import {
 } from "react-router-dom";
 
 import Root from "./Root";
-import VideoSuggestions, { SingleVideo } from "./components/videos";
+import VideosList, { SingleVideo } from "./components/videos";
 
 const App: React.FC = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
-        <Route index element={<VideoSuggestions />} />
+        <Route index element={<VideosList />} />
         <Route path="videos">
-          <Route index element={<VideoSuggestions />} />
+          <Route index element={<VideosList />} />
           <Route path=":id" element={<SingleVideo />} />
         </Route>
       </Route>

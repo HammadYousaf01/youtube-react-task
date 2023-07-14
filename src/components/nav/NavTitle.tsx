@@ -11,14 +11,21 @@ const NavTitle: React.FC = () => {
         color="inherit"
         sx={{
           p: 1,
-          color: "red",
           ":hover": {
             bgcolor: "inherit",
           },
         }}
       >
-        <YoutubeIcon style={{ fontSize: 50 }} />
-        <Box height={40} sx={{ display: "flex", alignItems: "center" }}>
+        <YoutubeIcon style={{ fontSize: 50, color: "red" }} />
+        <Box
+          height={40}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            color: "black",
+            fontWeight: 600,
+          }}
+        >
           <Typography variant="h6">YouTube</Typography>
         </Box>
       </IconButton>

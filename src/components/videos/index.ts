@@ -1,5 +1,7 @@
 import SingleVideo from "./SingleVideo";
-import VideoSuggestions from "./VideoSuggestions";
+import VideosList from "./VideosList";
+import Video from "./video";
+import VideoIFrame from "./VideoIFrame";
 
-export default VideoSuggestions;
-export { SingleVideo };
+export default VideosList;
+export { SingleVideo, VideoIFrame, Video };
