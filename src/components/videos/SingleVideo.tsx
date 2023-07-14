@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { Box } from "@mui/material";
 
-import VideosList, { VideoIFrame } from ".";
+import { VideoIFrame, VideosList } from ".";
 
 const SingleVideo: React.FC = () => {
   const { id } = useParams();

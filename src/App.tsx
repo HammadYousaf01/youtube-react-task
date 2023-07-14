@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 import Root from "./Root";
-import VideosList, { SingleVideo } from "./components/videos";
+import { SearchResult, VideosList, SingleVideo } from "./components";
 
 const App: React.FC = () => {
   const router = createBrowserRouter(
@@ -17,6 +17,7 @@ const App: React.FC = () => {
           <Route index element={<VideosList />} />
           <Route path=":id" element={<SingleVideo />} />
         </Route>
+        <Route path="search/:query" element={<SearchResult />} />
       </Route>
     )
   );
