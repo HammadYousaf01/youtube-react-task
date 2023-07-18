@@ -1,7 +1,12 @@
 import { Box } from "@mui/material";
 import { Video } from ".";
+import { Items } from "../search/SearchResult";
 
-const VideosList: React.FC = () => {
+interface Props {
+  videos: Items[] | undefined;
+}
+
+const VideosList: React.FC<Props> = ({ videos }) => {
   return (
     <Box
       sx={{
@@ -11,10 +16,21 @@ const VideosList: React.FC = () => {
         mt: 2,
       }}
     >
-      <Video />
-      <Video />
-      <Video />
-      <Video />
+      {videos?.map((video) => {
+        const snippet = video.snippet;
+
+        return (
+          <Video
+            key={video.id.videoId}
+            id={video.id.videoId}
+            title={snippet.title}
+            channelId={snippet.channelId}
+            channelName={snippet.channelTitle}
+            channelDisplayImage={snippet.thumbnails.high}
+            publishedAt={snippet.publishedAt}
+          />
+        );
+      })}
     </Box>
   );
 };

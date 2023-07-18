@@ -1,13 +1,23 @@
 import { Box } from "@mui/material";
 
 interface Props {
-  link: string;
+  imageData: {
+    url: string;
+    height: number;
+    width: number;
+  };
 }
 
-const Thumbnail: React.FC<Props> = ({ link }) => {
+const Thumbnail: React.FC<Props> = ({ imageData }) => {
   return (
     <Box sx={{ display: "flex", justifyContent: "center" }}>
-      <img src={link} alt="" height={200} style={{ borderRadius: 5 }} />
+      <img
+        src={imageData.url}
+        alt=""
+        height={200}
+        width={356}
+        style={{ borderRadius: 5, objectFit: "cover" }}
+      />
     </Box>
   );
 };
