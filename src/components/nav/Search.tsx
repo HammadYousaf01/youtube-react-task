@@ -1,9 +1,16 @@
+import React, { useState } from "react";
 import { Box } from "@mui/material";
 
 import SearchBox from "./SearchBox";
 import SearchButton from "./SearchButton";
 
 const Search: React.FC = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
   return (
     <Box
       sx={{
@@ -13,8 +20,8 @@ const Search: React.FC = () => {
         justifyContent: "center",
       }}
     >
-      <SearchBox />
-      <SearchButton />
+      <SearchBox query={searchQuery} handleOnChange={handleOnChange} />
+      <SearchButton query={searchQuery} />
     </Box>
   );
 };

@@ -9,9 +9,9 @@ import {
 import moment from "moment";
 
 import {
-  useSearchChannelDetails,
   useSearchVideoDetails,
-} from "../../search/utils";
+  useSearchChannelDetails,
+} from "../../../api/search-hooks";
 
 interface Props {
   id: string;
@@ -67,8 +67,6 @@ export interface ChannelItem {
   };
 }
 
-const API_KEY = "AIzaSyBeqMJPBIJRZa2ggng3LKnzNzaIkXCleag";
-
 const Video: React.FC<Props> = ({
   id,
   title,
@@ -77,9 +75,9 @@ const Video: React.FC<Props> = ({
   channelDisplayImage,
   publishedAt,
 }) => {
-  const { data, loading } = useSearchVideoDetails(id, API_KEY);
+  const { data, loading } = useSearchVideoDetails(id);
   const { data: channelData, loading: channelLoading } =
-    useSearchChannelDetails(channelId, API_KEY);
+    useSearchChannelDetails(channelId);
 
   if (loading || channelLoading) return <div>...loading</div>;
 

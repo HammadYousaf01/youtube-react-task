@@ -1,7 +1,12 @@
 import { IconButton, Box } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "react-router-dom";
 
-const SearchButton: React.FC = () => {
+interface Props {
+  query: string;
+}
+
+const SearchButton: React.FC<Props> = ({ query }) => {
   return (
     <Box
       sx={{
@@ -16,9 +21,11 @@ const SearchButton: React.FC = () => {
         justifyContent: "center",
       }}
     >
-      <IconButton>
-        <SearchIcon />
-      </IconButton>
+      <Link to={`/search/${query}`}>
+        <IconButton>
+          <SearchIcon />
+        </IconButton>
+      </Link>
     </Box>
   );
 };

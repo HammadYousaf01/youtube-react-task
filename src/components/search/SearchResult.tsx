@@ -1,10 +1,8 @@
 import { Box } from "@mui/material";
 import { useParams } from "react-router-dom";
-import { useSearchVideos } from "./utils";
+import { useSearchVideos } from "../../api/search-hooks";
 
 import { VideosList } from "..";
-
-const API_KEY = "AIzaSyBeqMJPBIJRZa2ggng3LKnzNzaIkXCleag";
 
 export interface SearchData {
   items: Items[];
@@ -40,7 +38,7 @@ export interface Items {
 
 const SearchResult: React.FC = () => {
   const { query } = useParams();
-  const { data, loading, error } = useSearchVideos(query, API_KEY);
+  const { data, loading, error } = useSearchVideos(query);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;

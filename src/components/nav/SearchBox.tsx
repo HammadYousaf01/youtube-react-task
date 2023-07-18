@@ -1,8 +1,17 @@
 import { TextField } from "@mui/material";
 
-const SearchBox: React.FC = () => {
+interface Props {
+  query: string;
+  handleOnChange:
+    | React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
+    | undefined;
+}
+
+const SearchBox: React.FC<Props> = ({ query, handleOnChange }) => {
   return (
     <TextField
+      value={query}
+      onChange={handleOnChange}
       size="small"
       InputProps={{
         style: {
