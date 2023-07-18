@@ -1,9 +1,8 @@
 import useAxios from "axios-hooks";
 import { API_KEY } from "../../config";
-import { SearchData } from "../../components/search/SearchResult";
 
 const useSearchVideos = (query: string | undefined, maxResults = 20) => {
-  const [{ data, loading, error }] = useAxios<SearchData>({
+  const [{ data, loading, error }] = useAxios<ISearchData>({
     url: `https://youtube.googleapis.com/youtube/v3/search`,
 
     params: {

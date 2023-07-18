@@ -26,47 +26,6 @@ interface Props {
   publishedAt: string;
 }
 
-export interface IVideo {
-  items: VideoItem[];
-}
-
-export interface VideoItem {
-  statistics: {
-    commentCount: string;
-    likeCount: string;
-    viewCount: string;
-  };
-}
-
-export interface IChannel {
-  items: ChannelItem[];
-}
-
-export interface ChannelItem {
-  id: string;
-  snippet: {
-    title: string;
-    description: string;
-    thumbnails: {
-      default: {
-        url: string;
-        width: string;
-        height: string;
-      };
-      medium: {
-        url: string;
-        width: string;
-        height: string;
-      };
-      high: {
-        url: string;
-        width: string;
-        height: string;
-      };
-    };
-  };
-}
-
 const Video: React.FC<Props> = ({
   id,
   title,
@@ -75,11 +34,11 @@ const Video: React.FC<Props> = ({
   channelDisplayImage,
   publishedAt,
 }) => {
-  const { data, loading } = useSearchVideoDetails(id);
+  const { data: videoData, loading: videoLoading } = useSearchVideoDetails(id);
   const { data: channelData, loading: channelLoading } =
     useSearchChannelDetails(channelId);
 
-  if (loading || channelLoading) return <div>...loading</div>;
+  if (videoLoading || channelLoading) return <div>...loading</div>;
 
   return (
     <Card elevation={0} sx={{ width: 400, height: 300, m: 1 }}>
@@ -92,7 +51,7 @@ const Video: React.FC<Props> = ({
           <Title title={title} />
           <ChannelName name={channelName} />
           <VideoInfo
-            info={`${data!.items[0].statistics.viewCount} views . ${moment(
+            info={`${videoData!.items[0].statistics.viewCount} views . ${moment(
               publishedAt
             ).fromNow()}`}
           />

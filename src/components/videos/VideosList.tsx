@@ -1,6 +1,5 @@
 import { Box } from "@mui/material";
 import { Video } from ".";
-import { Items } from "../search/SearchResult";
 
 interface Props {
   videos: Items[] | undefined;

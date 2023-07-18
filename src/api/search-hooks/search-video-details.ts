@@ -1,5 +1,4 @@
 import useAxios from "axios-hooks";
-import { IVideo } from "../../components/videos/video/Video";
 import { API_KEY } from "../../config";
 
 const useSearchVideoDetails = (id: string) => {

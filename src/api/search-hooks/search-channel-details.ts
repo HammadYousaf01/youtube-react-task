@@ -1,5 +1,4 @@
 import useAxios from "axios-hooks";
-import { IChannel } from "../../components/videos/video/Video";
 import { API_KEY } from "../../config";
 
 const useSearchChannelDetails = (id: string) => {
