@@ -51,9 +51,8 @@ const Video: React.FC<Props> = ({
           <Title title={title} />
           <ChannelName name={channelName} />
           <VideoInfo
-            info={`${videoData!.items[0].statistics.viewCount} views . ${moment(
-              publishedAt
-            ).fromNow()}`}
+            views={videoData!.items[0].statistics.viewCount}
+            publishedAt={moment(publishedAt).fromNow()}
           />
         </Box>
       </Box>
