@@ -1,9 +1,10 @@
 import useAxios from "axios-hooks";
 import { API_KEY } from "../../config";
+import { API_BASE_URL } from ".";
 
 const useSearchVideoDetails = (id: string) => {
   const [{ data, loading, error }] = useAxios<IVideo>({
-    url: `https://www.googleapis.com/youtube/v3/videos`,
+    url: `${API_BASE_URL}/videos`,
 
     params: {
       part: "statistics",

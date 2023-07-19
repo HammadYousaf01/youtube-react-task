@@ -1,4 +1,4 @@
-import { Box, Card, Grid } from "@mui/material";
+import { Box, Card, Grid, CircularProgress } from "@mui/material";
 import {
   Title,
   Thumbnail,
@@ -38,7 +38,12 @@ const Video: React.FC<Props> = ({
   const { data: channelData, loading: channelLoading } =
     useSearchChannelDetails(channelId);
 
-  if (videoLoading || channelLoading) return <div>...loading</div>;
+  if (videoLoading || channelLoading)
+    return (
+      <div>
+        <CircularProgress />
+      </div>
+    );
 
   return (
     <Grid item>

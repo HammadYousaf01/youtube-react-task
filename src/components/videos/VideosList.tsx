@@ -1,4 +1,3 @@
-// import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { Video } from ".";
 
@@ -9,13 +8,6 @@ interface Props {
 const VideosList: React.FC<Props> = ({ videos }) => {
   return (
     <Grid
-      // sx={{
-      //   display: "flex",
-      //   flexWrap: "wrap",
-      //   justifyContent: "center",
-      //   mt: 2,
-      // }}
-
       container
       justifyContent="center"
       sx={{
