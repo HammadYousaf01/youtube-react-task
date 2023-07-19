@@ -12,7 +12,7 @@ const SearchResult: React.FC = () => {
   if (error) return <div>{error.message}</div>;
 
   return (
-    <Box>
+    <Box sx={{ mt: 1 }}>
       <VideosList videos={data?.items} />
     </Box>
   );

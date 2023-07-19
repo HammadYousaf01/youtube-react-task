@@ -16,7 +16,16 @@ const NavTitle: React.FC = () => {
           },
         }}
       >
-        <YoutubeIcon style={{ fontSize: 50, color: "red" }} />
+        <YoutubeIcon
+          sx={{
+            fontSize: {
+              md: 50,
+              sm: 43,
+              xs: 35,
+            },
+            color: "red",
+          }}
+        />
         <Box
           height={40}
           sx={{
@@ -26,7 +35,20 @@ const NavTitle: React.FC = () => {
             fontWeight: 600,
           }}
         >
-          <Typography variant="h6">YouTube</Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              fontSize: {
+                md: 20,
+                sm: 18,
+                xs: 16,
+              },
+              fontWeight: 900,
+              letterSpacing: -1,
+            }}
+          >
+            YouTube
+          </Typography>
         </Box>
       </IconButton>
     </Link>

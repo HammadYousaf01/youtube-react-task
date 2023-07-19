@@ -1,4 +1,5 @@
-import { Box } from "@mui/material";
+// import { Box } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import { Video } from ".";
 
 interface Props {
@@ -7,12 +8,18 @@ interface Props {
 
 const VideosList: React.FC<Props> = ({ videos }) => {
   return (
-    <Box
+    <Grid
+      // sx={{
+      //   display: "flex",
+      //   flexWrap: "wrap",
+      //   justifyContent: "center",
+      //   mt: 2,
+      // }}
+
+      container
+      justifyContent="center"
       sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        mt: 2,
+        flexGrow: 1,
       }}
     >
       {videos?.map((video) => {
@@ -30,7 +37,7 @@ const VideosList: React.FC<Props> = ({ videos }) => {
           />
         );
       })}
-    </Box>
+    </Grid>
   );
 };
 

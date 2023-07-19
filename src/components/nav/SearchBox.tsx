@@ -16,9 +16,21 @@ const SearchBox: React.FC<Props> = ({ query, handleOnChange }) => {
       InputProps={{
         style: {
           borderRadius: "20px 0 0 20px",
-          width: 400,
           borderRight: "none",
           paddingLeft: 5,
+          fontSize: "inherit",
+        },
+      }}
+      sx={{
+        width: {
+          md: 400,
+          sm: 300,
+          xs: 180,
+        },
+        fontSize: {
+          md: 16,
+          sm: 14.5,
+          xs: 13,
         },
       }}
       placeholder="Search"

@@ -16,6 +16,7 @@ const Thumbnail: React.FC<Props> = ({ imageData }) => {
         alt=""
         height={200}
         width={356}
+        loading="lazy"
         style={{ borderRadius: 5, objectFit: "cover" }}
       />
     </Box>

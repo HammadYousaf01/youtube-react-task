@@ -12,7 +12,11 @@ const SearchButton: React.FC<Props> = ({ query }) => {
       sx={{
         border: "1px solid #A3A3A3",
         borderLeft: "none",
-        height: 40,
+        height: {
+          md: 40,
+          sm: 38,
+          xs: 36,
+        },
         width: 50,
         borderRadius: "0 20px 20px 0",
         bgcolor: "#F0F0F0",

@@ -1,4 +1,4 @@
-import { Box, Card } from "@mui/material";
+import { Box, Card, Grid } from "@mui/material";
 import {
   Title,
   Thumbnail,
@@ -41,22 +41,24 @@ const Video: React.FC<Props> = ({
   if (videoLoading || channelLoading) return <div>...loading</div>;
 
   return (
-    <Card elevation={0} sx={{ width: 400, height: 300, m: 1 }}>
-      <Thumbnail imageData={channelDisplayImage} />
-      <Box sx={{ display: "flex", ml: 1 }}>
-        <ChannelDisplayImage
-          link={channelData?.items[0].snippet.thumbnails.default.url}
-        />
-        <Box>
-          <Title title={title} />
-          <ChannelName name={channelName} />
-          <VideoInfo
-            views={videoData!.items[0].statistics.viewCount}
-            publishedAt={moment(publishedAt).fromNow()}
+    <Grid item>
+      <Card elevation={0} sx={{ width: 400, height: 300, m: 1 }}>
+        <Thumbnail imageData={channelDisplayImage} />
+        <Box sx={{ display: "flex", ml: 1 }}>
+          <ChannelDisplayImage
+            link={channelData?.items[0].snippet.thumbnails.default.url}
           />
+          <Box>
+            <Title title={title} />
+            <ChannelName name={channelName} />
+            <VideoInfo
+              views={videoData!.items[0].statistics.viewCount}
+              publishedAt={moment(publishedAt).fromNow()}
+            />
+          </Box>
         </Box>
-      </Box>
-    </Card>
+      </Card>
+    </Grid>
   );
 };
 
