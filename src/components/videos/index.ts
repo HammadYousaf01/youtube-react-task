@@ -1,6 +1,5 @@
-import SingleVideo from "./SingleVideo";
+import VideoPage from "./video-page";
 import VideosList from "./VideosList";
 import Video from "./video";
-import VideoIFrame from "./VideoIFrame";
 
-export { SingleVideo, VideoIFrame, Video, VideosList };
+export { VideoPage, Video, VideosList };

@@ -1,12 +1,13 @@
-import Nav from "./components/nav";
+import Box from "@mui/material/Box";
 import { Outlet } from "react-router-dom";
+import Nav from "components/nav";
 
 const Root: React.FC = () => {
   return (
-    <div>
+    <Box sx={{ height: "100vh" }}>
       <Nav />
       <Outlet />
-    </div>
+    </Box>
   );
 };
 

@@ -1,21 +1,36 @@
-import { Box } from "@mui/material";
-import { Video } from ".";
+import Grid from "@mui/material/Grid";
+import Video from "components/videos/video";
 
-const VideosList: React.FC = () => {
+interface Props {
+  videos: Items[] | undefined;
+}
+
+const VideosList: React.FC<Props> = ({ videos }) => {
   return (
-    <Box
+    <Grid
+      container
+      justifyContent="center"
       sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        mt: 2,
+        flexGrow: 1,
+        mt: 1,
       }}
     >
-      <Video />
-      <Video />
-      <Video />
-      <Video />
-    </Box>
+      {videos?.map((video) => {
+        const snippet = video.snippet;
+
+        return (
+          <Video
+            key={video.id.videoId}
+            id={video.id.videoId}
+            title={snippet.title}
+            channelId={snippet.channelId}
+            channelName={snippet.channelTitle}
+            channelDisplayImage={snippet.thumbnails.high}
+            publishedAt={snippet.publishedAt}
+          />
+        );
+      })}
+    </Grid>
   );
 };
 

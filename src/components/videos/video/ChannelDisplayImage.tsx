@@ -1,18 +1,13 @@
 import { Box } from "@mui/material";
-import channelLogo from "/channelLogo.jpg";
 
 interface Props {
-  link: string;
+  link: string | undefined;
 }
 
-const ChannelDisplayImage: React.FC<Props> = () => {
+const ChannelDisplayImage: React.FC<Props> = ({ link }) => {
   return (
-    <Box sx={{ p: 1 }}>
-      <img
-        src={channelLogo}
-        alt=""
-        style={{ width: 30, borderRadius: "50%" }}
-      />
+    <Box sx={{ p: 1, mt: 1 }}>
+      <img src={link} style={{ width: 35, borderRadius: "50%" }} />
     </Box>
   );
 };

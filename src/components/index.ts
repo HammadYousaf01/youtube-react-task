@@ -1,5 +1,6 @@
 import Nav from "./nav";
 import SearchResult from "./search";
-import { VideosList, SingleVideo } from "./videos";
+import { VideosList, VideoPage } from "./videos";
+import SuggestionsPage from "./SuggestionsPage";
 
-export { Nav, SearchResult, VideosList, SingleVideo };
+export { SuggestionsPage, Nav, SearchResult, VideosList, VideoPage };

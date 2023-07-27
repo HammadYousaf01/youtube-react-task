@@ -1,12 +1,16 @@
 import { Typography } from "@mui/material";
+import { prettyPrintNumbers } from "components/videos//utils";
 
 interface Props {
-  info: string;
+  views: string;
+  publishedAt: string;
 }
 
-const VideoInfo: React.FC<Props> = ({ info }) => {
+const VideoInfo: React.FC<Props> = ({ views, publishedAt }) => {
   return (
-    <Typography sx={{ color: "#616060", fontSize: 14 }}>{info}</Typography>
+    <Typography sx={{ color: "#616060", fontSize: 14 }}>
+      {prettyPrintNumbers(views)} views . {publishedAt}
+    </Typography>
   );
 };
 
