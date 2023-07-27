@@ -8,7 +8,7 @@ interface Props {
 
 const VideoInfo: React.FC<Props> = ({ views, publishedAt }) => {
   return (
-    <Typography sx={{ color: "#616060", fontSize: 14 }}>
+    <Typography variant="body2" sx={{ color: "#616060" }}>
       {prettyPrintNumbers(views)} views . {publishedAt}
     </Typography>
   );

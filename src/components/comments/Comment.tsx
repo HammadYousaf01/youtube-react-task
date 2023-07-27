@@ -13,8 +13,6 @@ interface Props {
 const Comment: React.FC<Props> = ({ commentThread }) => {
   const comment = commentThread.snippet.topLevelComment.snippet;
 
-  console.log(comment.authorProfileImageUrl);
-
   return (
     <Box sx={{ display: "flex", mt: 2 }}>
       <UserDisplayImage url={comment.authorProfileImageUrl} />
@@ -30,7 +28,7 @@ const Comment: React.FC<Props> = ({ commentThread }) => {
           <Content content={comment.textOriginal} />
         </Box>
         <Box sx={{ width: 75, mt: 1 }}>
-          <LikeCount likeCount={comment.likeCount} varient="comment" />
+          <LikeCount likeCount={comment.likeCount} variant="comment" />
         </Box>
       </Box>
     </Box>

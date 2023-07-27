@@ -21,7 +21,7 @@ const LandscapeVideoInfo: React.FC<Props> = ({ id }) => {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", mt: 1 }}>
-      <Typography variant="h6" sx={{ fontWeight: 900, fontSize: "20px" }}>
+      <Typography variant="h6" sx={{ fontWeight: 600 }}>
         {item?.snippet.title}
       </Typography>
       <Box

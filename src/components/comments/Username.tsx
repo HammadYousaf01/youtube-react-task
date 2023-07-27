@@ -8,8 +8,8 @@ const Username: React.FC<Props> = ({ username }) => {
   return (
     <Box>
       <Typography
+        variant="caption"
         sx={{
-          fontSize: 12,
           fontWeight: 600,
         }}
       >

@@ -8,7 +8,7 @@ interface Props {
 
 const PostedAt: React.FC<Props> = ({ postedAt, editedAt }) => {
   return (
-    <Typography sx={{ fontSize: 12, ml: 1, color: "#616060" }}>
+    <Typography variant="caption" sx={{ ml: 1, color: "#616060" }}>
       {moment(postedAt).fromNow()}
       {isCommentEdited(postedAt, editedAt) && ` (edited)`}
     </Typography>

@@ -30,10 +30,10 @@ const ChannelInfo: React.FC<Props> = ({ id }) => {
         />
       </Box>
       <Box sx={{ ml: 1 }}>
-        <Typography sx={{ fontWeight: 600, fontSize: "16px" }}>
+        <Typography variant="body1" sx={{ fontWeight: 600 }}>
           {channelItem?.snippet.title}
         </Typography>
-        <Typography sx={{ color: "#616060", fontSize: 12 }}>
+        <Typography variant="caption" sx={{ color: "#616060" }}>
           {prettyPrintNumbers(channelItem?.statistics.subscriberCount!)}{" "}
           subscribers
         </Typography>

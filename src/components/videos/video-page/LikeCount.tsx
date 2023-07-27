@@ -3,9 +3,11 @@ import ThumbUp from "@mui/icons-material/ThumbUpAltRounded";
 
 import { prettyPrintNumbers } from "components/videos/utils";
 
+type variantType = "comment" | "video";
+
 interface Props {
   likeCount: string | undefined;
-  varient?: "comment" | "video";
+  variant?: variantType;
 }
 
 const StyledLikes = styled(Box)<BoxProps>(() => ({
@@ -18,11 +20,20 @@ const StyledLikes = styled(Box)<BoxProps>(() => ({
   height: "35px",
 }));
 
-const LikeCount: React.FC<Props> = ({ likeCount, varient = "video" }) => {
+const StyledThumbUp = styled(ThumbUp)<{ variant: variantType }>(
+  ({ variant }) => ({
+    fontSize: variant === "video" ? 24 : 16,
+  })
+);
+
+const LikeCount: React.FC<Props> = ({ likeCount, variant = "video" }) => {
   return (
     <StyledLikes>
-      <ThumbUp sx={{ fontSize: varient === "video" ? 24 : 16 }} />
-      <Typography sx={{ ml: 1, fontSize: varient === "video" ? 16 : 12 }}>
+      <StyledThumbUp variant={variant} />
+      <Typography
+        sx={{ ml: 1 }}
+        variant={variant === "video" ? "body1" : "caption"}
+      >
         {prettyPrintNumbers(likeCount!)}
       </Typography>
     </StyledLikes>

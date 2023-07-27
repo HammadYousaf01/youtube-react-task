@@ -5,7 +5,7 @@ interface Props {
 }
 
 const Content: React.FC<Props> = ({ content }) => {
-  return <Typography sx={{ fontSize: 14 }}>{content}</Typography>;
+  return <Typography variant="body2">{content}</Typography>;
 };
 
 export default Content;
