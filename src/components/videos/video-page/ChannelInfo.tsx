@@ -33,7 +33,7 @@ const ChannelInfo: React.FC<Props> = ({ id }) => {
         <Typography variant="body1" sx={{ fontWeight: 600 }}>
           {channelItem?.snippet.title}
         </Typography>
-        <Typography variant="caption" sx={{ color: "#616060" }}>
+        <Typography variant="caption" sx={{ color: "videoInfo" }}>
           {prettyPrintNumbers(channelItem?.statistics.subscriberCount!)}{" "}
           subscribers
         </Typography>

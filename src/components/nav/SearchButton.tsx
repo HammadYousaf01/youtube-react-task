@@ -3,11 +3,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
 
 const StyledSearchButton = styled(Box)<BoxProps>(({ theme }) => ({
-  border: "1px solid #A3A3A3",
+  border: `1px solid ${theme.palette.mode === "light" ? "#A3A3A3" : "#424141"}`,
   borderLeft: "none",
   borderRadius: "0 20px 20px 0",
   width: 50,
-  backgroundColor: "#F0F0F0",
+  backgroundColor:
+    theme.palette.mode === "light" ? "#f8f8f8" : "rgba(255, 255, 255, 0.08)",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",

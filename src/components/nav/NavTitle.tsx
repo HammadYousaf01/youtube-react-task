@@ -28,12 +28,12 @@ const StyledYoutubeIcon = styled(YoutubeIcon)(({ theme }) => ({
 const StyledTitleContainer = styled(Box)<BoxProps>(() => ({
   display: "flex",
   alignItems: "center",
-  color: "black",
   fontWeight: 600,
   height: 40,
 }));
 
 const StyledTitleText = styled(Typography)<TypographyProps>(({ theme }) => ({
+  color: theme.palette.text.primary,
   fontWeight: 900,
   letterSpacing: -1,
 

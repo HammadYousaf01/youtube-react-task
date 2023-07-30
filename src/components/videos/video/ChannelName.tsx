@@ -6,7 +6,7 @@ interface Props {
 
 const ChannelName: React.FC<Props> = ({ name }) => {
   return (
-    <Typography variant="body2" sx={{ color: "#616060" }}>
+    <Typography variant="body2" sx={{ color: "videoInfo" }}>
       {name}
     </Typography>
   );
