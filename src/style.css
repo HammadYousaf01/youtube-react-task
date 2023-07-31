@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+iframe,
+.video-page-body {
+  width: 355px;
+}
+
+iframe {
+  height: 200px;
+}
+
+@media (min-width: 600px) {
+  iframe,
+  .video-page-body {
+    width: 480px;
+  }
+
+  iframe {
+    height: 270px;
+  }
+}
+
+@media (min-width: 960px) {
+  iframe,
+  .video-page-body {
+    width: 560px;
+  }
+
+  iframe {
+    height: 315px;
+  }
+}
+
+@media (min-width: 1060px) {
+  iframe,
+  .video-page-body {
+    width: 640px;
+  }
+
+  iframe {
+    height: 360px;
+  }
+}
+
+@media (min-width: 1150px) {
+  iframe,
+  .video-page-body {
+    width: 720px;
+  }
+
+  iframe {
+    height: 405px;
+  }
+}
+
+@media (min-width: 1280px) {
+  iframe,
+  .video-page-body {
+    width: 800px;
+  }
+
+  iframe {
+    height: 450px;
+  }
+}
+
+@media (min-width: 1310px) {
+  iframe,
+  .video-page-body {
+    width: 880px;
+  }
+
+  iframe {
+    height: 495px;
+  }
+}
+
+@media (min-width: 1500px) {
+  iframe,
+  .video-page-body {
+    width: 1040px;
+  }
+
+  iframe {
+    height: 585px;
+  }
+}
+
+@media (min-width: 1700px) {
+  iframe,
+  .video-page-body {
+    width: 1200px;
+  }
+
+  iframe {
+    height: 675px;
+  }
+}
+
+@media (min-width: 1920px) {
+  iframe,
+  .video-page-body {
+    width: 1280px;
+  }
+
+  iframe {
+    height: 720px;
+  }
+}
