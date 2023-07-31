@@ -7,7 +7,11 @@ interface Props {
 const ChannelDisplayImage: React.FC<Props> = ({ link }) => {
   return (
     <Box sx={{ p: 1, mt: 1 }}>
-      <img src={link} style={{ width: 35, borderRadius: "50%" }} />
+      <img
+        src={link}
+        style={{ width: 35, borderRadius: "50%" }}
+        referrerPolicy="no-referrer"
+      />
     </Box>
   );
 };

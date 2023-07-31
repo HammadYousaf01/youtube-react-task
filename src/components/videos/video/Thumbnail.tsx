@@ -18,6 +18,7 @@ const Thumbnail: React.FC<Props> = ({ imageData }) => {
         width={356}
         loading="lazy"
         style={{ borderRadius: 5, objectFit: "cover" }}
+        referrerPolicy="no-referrer"
       />
     </Box>
   );

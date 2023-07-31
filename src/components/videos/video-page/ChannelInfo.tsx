@@ -27,6 +27,7 @@ const ChannelInfo: React.FC<Props> = ({ id }) => {
         <img
           src={channelItem?.snippet.thumbnails.default.url}
           style={{ width: 35, borderRadius: "50%" }}
+          referrerPolicy="no-referrer"
         />
       </Box>
       <Box sx={{ ml: 1 }}>
