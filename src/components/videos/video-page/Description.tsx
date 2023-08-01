@@ -7,7 +7,7 @@ import {
   TypographyProps,
 } from "@mui/material";
 import { ArrowDropDown, ArrowDropUp } from "@mui/icons-material";
-import moment from "moment";
+import { formatDistance } from "date-fns";
 
 import { prettyPrintNumbers } from "components/videos/utils";
 
@@ -51,7 +51,10 @@ const Description: React.FC<Props> = ({ description, viewCount, postedAt }) => {
       {showDescription && (
         <StyledDescription>
           <Typography sx={{ fontWeight: 600 }}>
-            {prettyPrintNumbers(viewCount!)} views {moment(postedAt).fromNow()}
+            {prettyPrintNumbers(viewCount!)} views{" "}
+            {formatDistance(new Date(postedAt!), new Date(), {
+              addSuffix: true,
+            })}
           </Typography>
           {description}
         </StyledDescription>

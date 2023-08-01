@@ -1,5 +1,5 @@
 import Typography from "@mui/material/Typography";
-import moment from "moment";
+import { formatDistance } from "date-fns";
 
 interface Props {
   postedAt: string;
@@ -9,7 +9,7 @@ interface Props {
 const PostedAt: React.FC<Props> = ({ postedAt, editedAt }) => {
   return (
     <Typography variant="caption" sx={{ ml: 1, color: "videoInfo" }}>
-      {moment(postedAt).fromNow()}
+      {formatDistance(new Date(postedAt), new Date(), { addSuffix: true })}
       {isCommentEdited(postedAt, editedAt) && ` (edited)`}
     </Typography>
   );

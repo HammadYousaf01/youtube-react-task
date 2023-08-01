@@ -1,6 +1,6 @@
 import { Box, Card, CircularProgress } from "@mui/material";
 import { Link } from "react-router-dom";
-import moment from "moment";
+import { formatDistance } from "date-fns";
 
 import {
   Title,
@@ -11,9 +11,9 @@ import {
 } from ".";
 
 import {
-  useSearchVideoStatistics,
-  useSearchChannelDetails,
-} from "api/search-hooks";
+  useSearchChannelDetailsQuery,
+  useSearchVideoStatisticsQuery,
+} from "api/apiSlice";
 
 interface Props {
   id: string;
@@ -36,12 +36,22 @@ const Video: React.FC<Props> = ({
   channelDisplayImage,
   publishedAt,
 }) => {
-  const { data: videoData, loading: videoLoading } =
-    useSearchVideoStatistics(id);
-  const { data: channelData, loading: channelLoading } =
-    useSearchChannelDetails(channelId);
+  const {
+    data: videoData,
+    isLoading: isVideoLoading,
+    isError: isVideoError,
+    error: videoError,
+  } = useSearchVideoStatisticsQuery(id);
+  const {
+    data: channelData,
+    isLoading: isChannelLoading,
+    isError: isChannelError,
+    error: channelError,
+  } = useSearchChannelDetailsQuery(channelId!);
 
-  if (videoLoading || channelLoading) return <CircularProgress />;
+  if (isVideoLoading || isChannelLoading) return <CircularProgress />;
+  if (isVideoError) return <div>{videoError.toString()}</div>;
+  if (isChannelError) return <div>{channelError.toString()}</div>;
 
   return (
     <Card elevation={0} sx={{ width: 400, height: 300, m: 1 }}>
@@ -60,7 +70,9 @@ const Video: React.FC<Props> = ({
           <ChannelName name={channelName} />
           <VideoInfo
             views={videoData!.items[0].statistics.viewCount}
-            publishedAt={moment(publishedAt).fromNow()}
+            publishedAt={formatDistance(new Date(publishedAt), new Date(), {
+              addSuffix: true,
+            })}
           />
         </Box>
       </Box>

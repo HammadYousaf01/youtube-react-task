@@ -1,15 +1,20 @@
-import { useSearchVideos } from "api/search-hooks";
+import { useSearchVideosQuery } from "api/apiSlice";
 import { VideosList } from ".";
 
 import Loading from "components/Loading";
 
 const SuggestionsPage: React.FC = () => {
-  const { data, loading, error } = useSearchVideos("Computer Science");
+  const {
+    data: videos,
+    isFetching,
+    isError,
+    error,
+  } = useSearchVideosQuery("Computer Science");
 
-  if (loading) return <Loading />;
-  if (error) return <div>{error.message}</div>;
+  if (isFetching) return <Loading />;
+  if (isError) return <div>{error.toString()}</div>;
 
-  return <VideosList videos={data?.items} />;
+  return <VideosList videos={videos?.items} />;
 };
 
 export default SuggestionsPage;

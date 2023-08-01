@@ -1,28 +1,29 @@
-import { Box, Typography } from "@mui/material";
+import { styled, Box, BoxProps, Typography } from "@mui/material";
 
-import { useSearchChannelDetails } from "api/search-hooks";
 import { prettyPrintNumbers } from "components/videos/utils";
 
 import Loading from "components/Loading";
+import { useSearchChannelDetailsQuery } from "src/api/apiSlice";
 
 interface Props {
   id: string | undefined;
 }
 
-const ChannelInfo: React.FC<Props> = ({ id }) => {
-  const { data, loading } = useSearchChannelDetails(id);
+const StyledChannelInfo = styled(Box)<BoxProps>(() => ({
+  display: "flex",
+  alignItems: "center",
+  marginTop: 8,
+}));
 
-  if (loading) return <Loading />;
+const ChannelInfo: React.FC<Props> = ({ id }) => {
+  const { data, isLoading, isError, error } = useSearchChannelDetailsQuery(id!);
+
+  if (isLoading) return <Loading />;
+  if (isError) return <div>{error.toString()}</div>;
   const channelItem = data?.items[0];
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        mt: 1,
-      }}
-    >
+    <StyledChannelInfo>
       <Box>
         <img
           src={channelItem?.snippet.thumbnails.default.url}
@@ -39,7 +40,7 @@ const ChannelInfo: React.FC<Props> = ({ id }) => {
           subscribers
         </Typography>
       </Box>
-    </Box>
+    </StyledChannelInfo>
   );
 };
 
