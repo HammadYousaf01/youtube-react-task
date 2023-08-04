@@ -4,7 +4,8 @@
     "paths": {
       "src/*": ["./src/*"],
       "components/*": ["./src/components/*"],
-      "api/*": ["./src/api/*"]
+      "api/*": ["./src/api/*"],
+      "app/*": ["./src/app/*"]
     },
 
     "target": "ES2020",

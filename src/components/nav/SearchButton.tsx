@@ -1,6 +1,8 @@
 import { styled, IconButton, Box, BoxProps } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "app/hooks";
+import { clearQuery } from "app/slices/searchSlice";
 
 const StyledSearchButton = styled(Box)<BoxProps>(({ theme }) => ({
   border: `1px solid ${theme.palette.mode === "light" ? "#A3A3A3" : "#424141"}`,
@@ -24,14 +26,13 @@ const StyledSearchButton = styled(Box)<BoxProps>(({ theme }) => ({
   },
 }));
 
-interface Props {
-  query: string;
-}
+const SearchButton: React.FC = () => {
+  const query = useAppSelector((state) => state.search.query);
+  const dispatch = useAppDispatch();
 
-const SearchButton: React.FC<Props> = ({ query }) => {
   return (
     <StyledSearchButton>
-      <Link to={`/search/${query}`}>
+      <Link to={`/search/${query}`} onClick={() => dispatch(clearQuery())}>
         <IconButton>
           <SearchIcon />
         </IconButton>

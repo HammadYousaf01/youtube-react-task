@@ -3,6 +3,8 @@ import { Box, BoxProps, styled } from "@mui/material";
 import Typography, { TypographyProps } from "@mui/material/Typography";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import YoutubeIcon from "@mui/icons-material/YouTube";
+import { useAppDispatch } from "app/hooks";
+import { clearQuery } from "app/slices/searchSlice";
 
 const StyledIconButton = styled(IconButton)<IconButtonProps>(() => ({
   padding: 1,
@@ -49,8 +51,10 @@ const StyledTitleText = styled(Typography)<TypographyProps>(({ theme }) => ({
 }));
 
 const NavTitle: React.FC = () => {
+  const dispatch = useAppDispatch();
+
   return (
-    <Link to="/">
+    <Link to="/" onClick={() => dispatch(clearQuery())}>
       <StyledIconButton size="large" edge="start" color="inherit">
         <StyledYoutubeIcon />
         <StyledTitleContainer>

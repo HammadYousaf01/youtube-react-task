@@ -1,17 +1,19 @@
 import { Box, CircularProgress, Typography } from "@mui/material";
 
 import Comment from "./Comment";
-import { useSearchVideoComments } from "api/search-hooks";
+import { useSearchVideoCommentsQuery } from "api/apiSlice";
 
 interface Props {
   videoId: string | undefined;
 }
 
 const Comments: React.FC<Props> = ({ videoId }) => {
-  const { data, loading, error } = useSearchVideoComments(videoId);
+  const { data, isLoading, isError, error } = useSearchVideoCommentsQuery(
+    videoId!
+  );
 
-  if (loading) return <CircularProgress />;
-  if (error) return <>{error.message}</>;
+  if (isLoading) return <CircularProgress />;
+  if (isError) return <>{error.toString()}</>;
 
   return (
     <Box mt={2}>

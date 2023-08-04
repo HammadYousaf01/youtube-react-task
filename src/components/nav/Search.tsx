@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { styled, Box, BoxProps } from "@mui/material";
 
 import SearchBox from "./SearchBox";
@@ -12,16 +11,10 @@ const StyledSearch = styled(Box)<BoxProps>(() => ({
 }));
 
 const Search: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
-  };
-
   return (
     <StyledSearch>
-      <SearchBox query={searchQuery} handleOnChange={handleOnChange} />
-      <SearchButton query={searchQuery} />
+      <SearchBox />
+      <SearchButton />
     </StyledSearch>
   );
 };

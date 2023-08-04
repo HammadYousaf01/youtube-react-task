@@ -9,6 +9,7 @@ const UserDisplayImage: React.FC<Props> = ({ url }) => {
       alt="User Image"
       loading="lazy"
       style={{ borderRadius: "50%", height: 35 }}
+      referrerPolicy="no-referrer"
     />
   );
 };

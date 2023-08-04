@@ -2,7 +2,7 @@ import useAxios from "axios-hooks";
 import { API_KEY } from "../../config";
 import { API_BASE_URL } from "src/config";
 
-const useSearchVideoDetails = (id: string | undefined) => {
+const useSearchVideoStatistics = (id: string | undefined) => {
   const [{ data, loading, error }] = useAxios<IVideoStatistics>({
     url: `${API_BASE_URL}/videos`,
 
@@ -20,4 +20,4 @@ const useSearchVideoDetails = (id: string | undefined) => {
   };
 };
 
-export default useSearchVideoDetails;
+export default useSearchVideoStatistics;

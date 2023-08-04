@@ -1,12 +1,7 @@
 import { styled } from "@mui/material";
 import TextField, { TextFieldProps } from "@mui/material/TextField";
-
-interface Props {
-  query: string;
-  handleOnChange:
-    | React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>
-    | undefined;
-}
+import { useAppSelector, useAppDispatch } from "app/hooks";
+import { updateQuery } from "app/slices/searchSlice";
 
 const SearchBoxField = styled(TextField)<TextFieldProps>(({ theme }) => ({
   "& .MuiInputBase-root": {
@@ -30,7 +25,14 @@ const SearchBoxField = styled(TextField)<TextFieldProps>(({ theme }) => ({
   },
 }));
 
-const SearchBox: React.FC<Props> = ({ query, handleOnChange }) => {
+const SearchBox: React.FC = () => {
+  const query = useAppSelector((state) => state.search.query);
+  const dispatch = useAppDispatch();
+
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(updateQuery(e.target.value));
+  };
+
   return (
     <SearchBoxField
       value={query}

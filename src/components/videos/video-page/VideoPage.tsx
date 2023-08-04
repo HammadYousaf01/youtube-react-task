@@ -6,8 +6,8 @@ import Comments from "components/comments";
 import LandscapeVideoInfo from "./LandscapeVideoInfo";
 import VideoIFrame from "./VideoIFrame";
 
-import { useSearchRelatedVideos } from "api/search-hooks";
 import Loading from "components/Loading";
+import { useSearchRelatedVideosQuery } from "api/apiSlice";
 
 const StyledVideoPage = styled(Box)<BoxProps>(({ theme }) => ({
   display: "flex",
@@ -28,10 +28,10 @@ const StyledIframeContainer = styled(Box)<BoxProps>(() => ({
 
 const VideoPage: React.FC = () => {
   const { id } = useParams();
-  const { data, loading, error } = useSearchRelatedVideos(id);
+  const { data, isLoading, isError, error } = useSearchRelatedVideosQuery(id!);
 
-  if (loading) return <Loading />;
-  if (error) return <>{error.message}</>;
+  if (isLoading) return <Loading />;
+  if (isError) return <>{error.toString()}</>;
 
   return (
     <StyledVideoPage>
